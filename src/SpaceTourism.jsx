@@ -3,7 +3,7 @@ import { About } from "./pages/About";
 import { Home } from "./pages/Home";
 import { Contact } from "./pages/Contact";
 import { Projects } from "./pages/Projects";
-import { Navbar } from "./componentes/navbar";
+import { Navbar } from "./componentes/navbar/Navbar.jsx";
 export const SpaceTourism = () => {
   return (
     <>
