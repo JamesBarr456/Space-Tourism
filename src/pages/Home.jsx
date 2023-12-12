@@ -11,7 +11,7 @@ export const Home = () => {
                    bg-no-repeat 
                    min-h-screen"
       >
-        <div className="lg:flex lg:pt-[387px] lg:pl-[165px]">
+        <div className="lg:flex md:pt-[100px] lg:pt-[200px] lg:pl-[165px]">
           <div
             className="flex
                      flex-col
@@ -50,6 +50,8 @@ export const Home = () => {
                      text-Azul-Lavanda
                        text-center
                        px-4
+                       md:w-[60%]
+                       lg:w-full
                        lg:px-0
                        mb-14"
             >

@@ -31,10 +31,11 @@ export const NavbarMobile = ({setModal}) => {
                     onClick={handleClose} 
                 />
             </div>
-            <ul className="flex
-                            flex-col
-                            items-start
-                            gap-5
+            <ul 
+            className="flex
+                       flex-col
+                       items-start
+                       gap-5
                             ">
                {menuList.map( link => 
                  <li 
