@@ -5,15 +5,15 @@ import { NavbarMobile } from "./NavbarMobile";
 import { NavLink } from "react-router-dom";
 const menuList = [
   { id: 0, text: "HOME" },
-  { id: 1, text: "ABOUT" },
-  { id: 2, text: "PROJECTS" },
-  { id: 3, text: "CONTACT" }
-]
+  { id: 1, text: "DESTINATION" },
+  { id: 2, text: "CREW" },
+  { id: 3, text: "TECHNOLOGY" },
+];
 export const Navbar = () => {
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = useState(false);
   const handleMenu = () => {
-    setModal(!modal)
-  }
+    setModal(!modal);
+  };
   return (
     <div
       className="flex
@@ -48,8 +48,9 @@ export const Navbar = () => {
                      md:px-10
                      lg:px-36
                      py-9
-                     ">
-          {menuList.map(link =>
+                     "
+        >
+          {menuList.map((link) => (
             <li
               className="font-condensed flex
                      text-White
@@ -63,23 +64,14 @@ export const Navbar = () => {
               >
                 0{link.id}
               </span>
-              <a>
-                <NavLink 
-                  to={`/${link.text.toLowerCase()}`}
-                >
-                  {link.text}
-                </NavLink>
-              </a>
-            </li>)}
+
+              <NavLink to={`/${link.text.toLowerCase()}`}>{link.text}</NavLink>
+            </li>
+          ))}
         </ul>
       </div>
 
-      <img
-        src={menu}
-        className="md:hidden"
-        onClick={handleMenu}
-        alt="menu" 
-      />
+      <img src={menu} className="md:hidden" onClick={handleMenu} alt="menu" />
       {modal ? <NavbarMobile setModal={setModal}></NavbarMobile> : null}
     </div>
   );

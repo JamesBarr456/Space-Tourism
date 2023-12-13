@@ -1,8 +1,8 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { About } from "./pages/About";
+import { Crew } from "./pages/Crew";
 import { Home } from "./pages/Home";
-import { Contact } from "./pages/Contact";
-import { Projects } from "./pages/Projects";
+import { Destination } from "./pages/Destination";
+import { Technology } from "./pages/Technology";
 import { Navbar } from "./componentes/navbar/Navbar.jsx";
 export const SpaceTourism = () => {
   return (
@@ -10,9 +10,12 @@ export const SpaceTourism = () => {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/about" element={<About></About>}></Route>
-        <Route path="/projects" element={<Projects></Projects>}></Route>
-        <Route path="/contact" element={<Contact></Contact>}></Route>
+        <Route
+          path="/destination"
+          element={<Destination></Destination>}
+        ></Route>
+        <Route path="/crew" element={<Crew></Crew>}></Route>
+        <Route path="/technology" element={<Technology></Technology>}></Route>
         <Route path="/*" element={<Navigate to="/" />}></Route>
       </Routes>
     </>
