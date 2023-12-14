@@ -13,7 +13,7 @@ export const Destination = () => {
                 text-White
                  px-6
                  font-Barlow
-                 pt-[140px]
+                 pt-40
                  md:bg-destination-tablet
                  md:px-20
                  lg:bg-destination-desktop"
@@ -67,10 +67,8 @@ export const Destination = () => {
                        gap-4 
                        font-condensed
                        my-10
-                       md:order-2  
                        justify-center
                        text-Azul-Lavanda
-                       lg:order-3 
                        lg:w-full"
             >
               <button
