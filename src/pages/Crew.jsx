@@ -16,27 +16,26 @@ export const Crew = () => {
                    lg:bg-crew-desktop"
       >
         <h2
-            className="font-Barlow
+          className="font-Barlow
                        tracking-[2.7px]
                        w-full
                        mb-10
                        lg:text-3xl
                        "
-          >
-            <span
-              className="font-bold 
+        >
+          <span
+            className="font-bold 
                          opacity-25 
                          mr-2"
-            >
-              02
-            </span>
-            MEET YOUR CREW
-          </h2>
+          >
+            02
+          </span>
+          MEET YOUR CREW
+        </h2>
         <div
           className="flex
                      flex-col
                      items-center
-                     lg:
                      lg:items-star
                      lg:w-[50%]
                      xl:w-[40%]"
@@ -57,7 +56,7 @@ export const Crew = () => {
             src={people}
             alt=""
           />
-          <div 
+          <div
             className="flex 
                        gap-4 
                        my-10
@@ -65,7 +64,7 @@ export const Crew = () => {
                        lg:justify-center 
                        lg:order-3 
                        lg:w-full"
-            >
+          >
             <button
               type="button"
               className="rounded-full
@@ -95,17 +94,14 @@ export const Crew = () => {
                         h-[10px]"
             ></button>
           </div>
-          <div 
+          <div
             className="font-bellefair  
                      text-Azul-Claro 
                        md:w-[65%] 
-                       lg:w-full ">
-            <h3 
-              className="lg:text-3xl"
-            >
-              COMMANDER
-            </h3>
-            <h1 
+                       lg:w-full "
+          >
+            <h3 className="lg:text-3xl">COMMANDER</h3>
+            <h1
               className="text-2xl
                        text-White 
                          mt-2 mb-7 
@@ -113,7 +109,7 @@ export const Crew = () => {
             >
               DOUGLAS HURLEY
             </h1>
-            <p 
+            <p
               className="font-barlow 
                          mb-10 
                          lg:text-xl "
