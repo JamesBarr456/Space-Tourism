@@ -3,11 +3,11 @@ import { Destinations } from "../../componentes/Data";
 import { SelectPlanet } from "./SelectPlanet";
 export const Destination = () => {
   const [planet, setPlanet] = useState("moon");
-  const planetDestiny = () => {
-    const foundDestination = Destinations.find((pl) => pl.name === planet);
-    return [foundDestination]; // Devuelve un array con el destino encontrado
-  };
 
+  const planetDestiny = () => {
+    return Destinations.find((pl) => pl.name === planet);;
+  };
+  const foundDestination = planetDestiny()
   return (
     <section
       className="bg-destination-mobile 
@@ -52,8 +52,8 @@ export const Destination = () => {
                      w-full"
         >
           <img
-            src=""
-            alt=""
+            src={foundDestination.images.png}
+            alt={foundDestination.name}
             className="w-[40%] 
                        lg:w-[350px] 
                        lg:h-[350px] 
@@ -67,60 +67,22 @@ export const Destination = () => {
                      border-[#d3d3d369]
                      pb-8"
           >
-            <div
-              className="flex 
-                       gap-4 
-                       font-condensed
-                       my-10
-                       justify-center
-                       text-Azul-Lavanda
-                       lg:w-full"
-            >
-              <button
-                type="button"
-                className="tracking-[2.7px]
-                           py-2"
-              >
-                MOON
-              </button>
-              <button
-                type="button"
-                className="tracking-[2.7px]
-                           py-2"
-              >
-                MARS
-              </button>
-              <button
-                type="button"
-                className="tracking-[2.7px]
-                           py-2"
-              >
-                EUROPA
-              </button>
-              <button
-                type="button"
-                className="tracking-[2.7px]
-                           py-2"
-              >
-                TITAN
-              </button>
-            </div>
+            <SelectPlanet
+              setPlanet={setPlanet}
+            ></SelectPlanet>
             <h1
               className="text-[56px] 
                          font-bellefair
                          xl:text-[100px]"
             >
-              MOON
+              {foundDestination.name.toUpperCase()}
             </h1>
             <p
               className="text-lg
                           text-Azul-Lavanda
                           lg:text-start"
             >
-              See our planet as you’ve never seen it before. A perfect relaxing
-              trip away to help regain perspective and come back refreshed.
-              While you’re there, take in some history by visiting the Luna 2
-              and Apollo 11 landing sites.
+              {foundDestination.description}
             </p>
           </div>
           <div /** datos */
@@ -143,7 +105,7 @@ export const Destination = () => {
               className="text-3xl 
                        font-bellefair"
             >
-              384,400 KM
+              {foundDestination.distance}
             </span>
             <h3
               className="font-condensed
@@ -156,7 +118,7 @@ export const Destination = () => {
               className="text-3xl 
                        font-bellefair"
             >
-              3 DAYS
+              {foundDestination.travel}
             </span>
           </div>
         </div>

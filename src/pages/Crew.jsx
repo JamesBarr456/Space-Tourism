@@ -1,5 +1,14 @@
-import people from "../assets/crew/image-douglas-hurley.webp";
+import { useState } from "react";
+
+import { Crews } from "../componentes/Data";
+import { SelectPeople } from "./SelectPeople";
 export const Crew = () => {
+  const [crew, setCrew] = useState(Crews[0].name)
+  const findPeople = () => {
+    return Crews.find((objeto) => objeto.name === crew);
+  };
+  const names = Crews.map( objeto => objeto.name)
+  const foundPeople = findPeople()
   return (
     <>
       <section
@@ -53,70 +62,34 @@ export const Crew = () => {
                        lg:absolute 
                        lg:bottom-0 
                        lg:right-[10%]"
-            src={people}
-            alt=""
+            src={foundPeople.images.png}
+            alt={foundPeople.name}
           />
-          <div
-            className="flex 
-                       gap-4 
-                       my-10
-                       md:order-2  
-                       lg:justify-center 
-                       lg:order-3 
-                       lg:w-full"
-          >
-            <button
-              type="button"
-              className="rounded-full
-                      bg-White 
-                         w-[10px] 
-                         h-[10px]"
-            ></button>
-            <button
-              type="button"
-              className="rounded-full
-                       bg-White 
-                        w-[10px] 
-                        h-[10px]"
-            ></button>
-            <button
-              type="button"
-              className="rounded-full
-                       bg-White 
-                        w-[10px] 
-                        h-[10px]"
-            ></button>
-            <button
-              type="button"
-              className="rounded-full
-                       bg-White 
-                        w-[10px] 
-                        h-[10px]"
-            ></button>
-          </div>
+          <SelectPeople
+            names={names}
+            setCrew={setCrew}
+          ></SelectPeople>
           <div
             className="font-bellefair  
                      text-Azul-Claro 
                        md:w-[65%] 
                        lg:w-full "
           >
-            <h3 className="lg:text-3xl">COMMANDER</h3>
+            <h3 className="lg:text-3xl">{foundPeople.role}</h3>
             <h1
               className="text-2xl
                        text-White 
                          mt-2 mb-7 
                          lg:text-[48px]"
             >
-              DOUGLAS HURLEY
+              {foundPeople.name}
             </h1>
             <p
               className="font-barlow 
                          mb-10 
                          lg:text-xl "
             >
-              Douglas Gerald Hurley is an American engineer, former Marine Corps
-              pilot and former NASA astronaut. He launched into space for the
-              third time as commander of Crew Dragon Demo-2.
+              {foundPeople.bio}
             </p>
           </div>
         </div>

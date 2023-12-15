@@ -1,6 +1,22 @@
-import cohete from "../assets/technology/image-launch-vehicle-landscape.jpg";
-import cohete2 from "../assets/technology/image-launch-vehicle-portrait.jpg"
+import { useEffect, useState } from "react";
+import { Technologys } from "../componentes/Data"
+import { SelectTecnology } from "./SelectTecnology";
 export const Technology = () => {
+  const [tecno, setTecno] = useState(0)
+  const counts = Technologys.map((objeto, index) => index);
+  const Tech = Technologys[tecno]
+  const [isMobile, setIsMobile] = useState(window.matchMedia("(max-width: 1280px)").matches);
+
+  useEffect(() => {
+    const mediaQueryList = window.matchMedia("(max-width: 1280px)");
+    const handleWidthChange = (event) => {
+      setIsMobile(event.matches);
+    };
+    mediaQueryList.addEventListener("change", handleWidthChange);
+    return () => {
+      mediaQueryList.removeEventListener("change", handleWidthChange);
+    };
+  }, []);
   return (
     <>
       <section
@@ -45,8 +61,8 @@ export const Technology = () => {
                        pb-10">
             <img
               className="w-full"
-              src={cohete}
-              alt=""
+              src={isMobile ? Tech.images.landscape : Tech.images.portrait}
+              alt={Tech.name}
             />
           </div>
           <div /** Aqui va los botones y texto */
@@ -54,62 +70,14 @@ export const Technology = () => {
                        p-10
                        xl:flex"
           >
+            <SelectTecnology
+              counts={counts}
+              setTecno={setTecno}
+            ></SelectTecnology>
             <div
-              className="flex 
-                       gap-4 
-                       mb-10
-                       justify-center
-                       xl:flex-col
-                       xl:justify-start
-                       xl:gap-9"
-            >
-              <button
-                type="button"
-                className="w-10
-                           h-10
-                           md:w-14
-                           md:h-14
-                           xl:w-16
-                           xl:h-16
-                           rounded-full
-                           border-White
-                           border"
-              >
-                1
-              </button>
-              <button
-                type="button"
-                className="w-10
-                           h-10
-                           md:w-14
-                           md:h-14
-                           xl:w-16
-                           xl:h-16
-                           rounded-full
-                           border-White
-                           border"
-              >
-                2
-              </button>
-              <button
-                type="button"
-                className="w-10
-                           h-10
-                           md:w-14
-                           md:h-14
-                           xl:w-16
-                           xl:h-16
-                           rounded-full
-                           border-White
-                           border"
-              >
-                3
-              </button>
-            </div>
-            <div 
               className="xl:flex
                          xl:flex-col
-                         md:px-12" 
+                         md:px-12"
             >
               <h3 className="text-sm
                             text-Azul-Claro"
@@ -122,16 +90,15 @@ export const Technology = () => {
                          mt-2 mb-7 
                          lg:text-[48px]"
               >
-                LAUNCH VEHICLE
+                {Tech.name.toUpperCase()}
               </h1>
               <p
                 className="font-barlow
                           text-Azul-Claro
                          lg:text-xl "
               >
-                A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!
+               {Tech.description}
               </p>
-
             </div>
           </div>
         </div>
