@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Technologys } from "../componentes/Data"
+import { Technologys } from "../../componentes/Data"
 import { SelectTecnology } from "./SelectTecnology";
 export const Technology = () => {
   const [tecno, setTecno] = useState(0)

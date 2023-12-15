@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Crews } from "../componentes/Data";
+import { Crews } from "../../componentes/Data";
 import { SelectPeople } from "./SelectPeople";
 export const Crew = () => {
   const [crew, setCrew] = useState(Crews[0].name)
