@@ -1,10 +1,6 @@
 import close from "../../assets/icons/icon-close.svg";
-const menuList = [
-  { id: 0, text: "HOME" },
-  { id: 1, text: "DESTINATION" },
-  { id: 2, text: "CREW" },
-  { id: 3, text: "TECHNOLOGY" },
-];
+import { Links } from "../Data";
+import { NavLink } from "react-router-dom";
 export const NavbarMobile = ({ setModal }) => {
   const handleClose = () => {
     setModal(false);
@@ -12,21 +8,20 @@ export const NavbarMobile = ({ setModal }) => {
   return (
     <div
       className="absolute
-                        top-0
-                        right-0
-                        w-64
-                        min-h-screen
-                        backdrop-blur-md
-                        "
+                 top-0
+                 right-0
+                 w-64
+                 min-h-screen
+                 backdrop-blur-md
+                 bg-[#ffffff0d]"
     >
-      .
       <div
         className="flex
-                            justify-end
-                            w-full
-                            pr-6
-                            pt-4
-                            mb-14"
+                   justify-end
+                   w-full
+                   pr-6
+                   pt-8
+                   mb-14"
       >
         <img src={close} alt="close" onClick={handleClose} />
       </div>
@@ -34,23 +29,25 @@ export const NavbarMobile = ({ setModal }) => {
         className="flex
                        flex-col
                        items-start
-                       gap-5
-                            "
+                       gap-5"
       >
-        {menuList.map((link) => (
+        {Links.map((link) => (
           <li
             className="font-condensed
-                             text-White
-                               tracking-[2.7px]
-                               ml-7"
+                     text-White
+                       tracking-[2.7px]
+                       ml-7"
+            key={link.id}
           >
-            <span
-              className="font-bold 
-                                               mr-5"
-            >
-              0{link.id}
-            </span>
-            {link.text}
+            <NavLink to={`/${link.name.toLowerCase()}`} onClick={handleClose}>
+              <span
+                className="font-bold 
+                           mr-5"
+              >
+                {link.page}
+              </span>
+              {link.name}
+            </NavLink>
           </li>
         ))}
       </ul>

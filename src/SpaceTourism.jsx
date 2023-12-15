@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Crew } from "./pages/Crew";
 import { Home } from "./pages/Home";
-import { Destination } from "./pages/Destination";
+import { Destination } from "./pages/destination/Destination.jsx";
 import { Technology } from "./pages/Technology";
 import { Navbar } from "./componentes/navbar/Navbar.jsx";
 export const SpaceTourism = () => {

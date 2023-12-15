@@ -1,8 +1,13 @@
-import europa from "../assets/destination/image-europa.png";
-import mars from "../assets/destination/image-mars.png";
-import moon from "../assets/destination/image-moon.png";
-import titan from "../assets/destination/image-titan.png";
+import { useState } from "react";
+import { Destinations } from "../../componentes/Data";
+import { SelectPlanet } from "./SelectPlanet";
 export const Destination = () => {
+  const [planet, setPlanet] = useState("moon");
+  const planetDestiny = () => {
+    const foundDestination = Destinations.find((pl) => pl.name === planet);
+    return [foundDestination]; // Devuelve un array con el destino encontrado
+  };
+
   return (
     <section
       className="bg-destination-mobile 
@@ -47,7 +52,7 @@ export const Destination = () => {
                      w-full"
         >
           <img
-            src={moon}
+            src=""
             alt=""
             className="w-[40%] 
                        lg:w-[350px] 
