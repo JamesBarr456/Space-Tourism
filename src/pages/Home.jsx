@@ -1,5 +1,5 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 export const Home = () => {
   return (
     <>
@@ -11,8 +11,16 @@ export const Home = () => {
                    bg-no-repeat 
                    min-h-screen"
       >
-        <div className="lg:flex md:pt-[100px] lg:pt-[200px] lg:pl-[165px]">
-          <div
+        <div
+
+          className="lg:flex 
+                      md:pt-[100px] 
+                      lg:pt-[200px] 
+                      lg:pl-[165px]">
+          <motion.div
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1.5 }}
             className="flex
                      flex-col
                      lg:w-[450px]
@@ -60,11 +68,15 @@ export const Home = () => {
               Well sit back, and relax because we’ll give you a truly out of this
               world experience!
             </p>
-          </div>
-          <div className="flex
-                          justify-center
-                          items-end 
-                          w-full">
+          </motion.div>
+          <motion.div 
+            initial= {{x:400, opacity:0}}
+            animate={{x:0, opacity:1}}
+            transition={{duration:1.5}}
+            className="flex
+                        justify-center
+                        items-end 
+                        w-full">
             <button
               className="bg-White
                         font-bellefair
@@ -78,7 +90,7 @@ export const Home = () => {
             >
               EXPLORE
             </button>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>
