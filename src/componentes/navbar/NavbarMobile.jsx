@@ -13,7 +13,8 @@ export const NavbarMobile = ({ setModal }) => {
                  w-64
                  min-h-screen
                  backdrop-blur-md
-                 bg-[#ffffff0d]"
+                 bg-[#ffffff0d]
+                Ñ"
     >
       <div
         className="flex

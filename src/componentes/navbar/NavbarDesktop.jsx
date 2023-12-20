@@ -40,7 +40,7 @@ export const NavbarDesktop = ({ handleMenu }) => {
                      md:px-10
                      lg:px-36"
         >
-          {Links.map((link,index) => (
+          {Links.map((link, index) => (
             <motion.li
 
               className="font-condensed 
@@ -53,18 +53,20 @@ export const NavbarDesktop = ({ handleMenu }) => {
               onHoverStart={() => setHoveredIndex(index)} // Actualiza el índice al hacer hover
               onHoverEnd={() => setHoveredIndex(null)} // Reinicia el índice al dejar de hacer hover
             >
-              <span
-                className="hidden 
+
+              <NavLink
+                to={`/${link.name.toLowerCase()}`}
+                onClick={() => handleLinkClick(index)}
+                className="flex"
+              >
+                <span
+                  className="hidden 
                            font-bold 
                            mr-5 
                            lg:block "
-              >
-                {link.page}
-              </span>
-              <NavLink 
-                to={`/${link.name.toLowerCase()}`}
-                onClick={() => handleLinkClick(index)}
-              >
+                >
+                  {link.page}
+                </span>
                 {link.name}
               </NavLink>
               <motion.span
@@ -80,7 +82,9 @@ export const NavbarDesktop = ({ handleMenu }) => {
                   left: 0,
                   width: "100%",
                   height: 3,
-                  background: "white",
+                  background:
+                   "white" 
+                ,
                 }}
               />
             </motion.li>
