@@ -12,11 +12,10 @@ export const Home = () => {
                    min-h-screen"
       >
         <div
-
           className="lg:flex 
                       md:pt-[100px] 
-                      lg:pt-[200px] 
-                      lg:pl-[165px]">
+                      lg:pt-[160px] 
+                      lg:justify-around">
           <motion.div
             initial={{ x: -200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -75,8 +74,8 @@ export const Home = () => {
             transition={{duration:1.5}}
             className="flex
                         justify-center
-                        items-end 
-                        w-full">
+                        items-end"
+            >
             <button
               className="bg-White
                         font-bellefair

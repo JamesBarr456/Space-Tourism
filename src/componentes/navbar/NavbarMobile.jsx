@@ -1,10 +1,27 @@
+import { useEffect } from "react";
 import close from "../../assets/icons/icon-close.svg";
 import { Links } from "../Data";
 import { NavLink } from "react-router-dom";
+useEffect
 export const NavbarMobile = ({ setModal }) => {
   const handleClose = () => {
     setModal(false);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 726) {
+        handleClose();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div
       className="absolute

@@ -27,6 +27,23 @@ export const NavbarDesktop = ({ handleMenu }) => {
                    md:px-0"
     >
       <img src={logo} alt="logo" />
+      <motion.span
+          initial={{scaleX:0}}
+          animate={{scaleX:1}}
+          transition={{duration:0.5}}
+          className="hidden
+                     relative
+                   bg-White
+                     w-[30%]
+                     h-[1px]
+                     ml-16
+                     -mr-[2.5rem]
+                     z-50
+                     top-[50%]
+                     lg:block
+                     "
+        >
+      </motion.span>
       <div
         className="hidden 
                    backdrop-blur-lg 
@@ -83,7 +100,7 @@ export const NavbarDesktop = ({ handleMenu }) => {
                   width: "100%",
                   height: 3,
                   background:
-                   "white" 
+                    clickedIndex === index ? "white" :  "gray"
                 ,
                 }}
               />
