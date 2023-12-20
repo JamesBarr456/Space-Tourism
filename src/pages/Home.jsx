@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 export const Home = () => {
   return (
     <>
@@ -76,19 +77,34 @@ export const Home = () => {
                         justify-center
                         items-end"
             >
-            <button
-              className="bg-White
+            <NavLink
+              to={"/destination"}
+              className="flex
+                        items-center
+                        justify-center
+                      bg-White
                         font-bellefair
+                        rounded-full
+                        my-12
+                        relative
+                        z-[1]
+                        hover:after:content-['']
+                        hover:after:-z-[1]
+                        hover:after:absolute
+                        hover:after:bg-White
+                        hover:after:opacity-20
+                        hover:after:w-full
+                        hover:after:h-full
+                        hover:after:rounded-full
+                        hover:after:scale-150
                         w-[150px]
                         h-[150px]
                         lg:w-[274px]
                         lg:h-[274px]
-                        rounded-full
-                        my-12
                         lg:text-3xl"
             >
               EXPLORE
-            </button>
+            </NavLink>
           </motion.div>
         </div>
       </section>

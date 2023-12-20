@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Destinations } from "../../componentes/Data";
 import { SelectPlanet } from "./SelectPlanet";
+
 export const Destination = () => {
   const [planet, setPlanet] = useState("moon");
 
@@ -73,9 +74,10 @@ export const Destination = () => {
             <h1
               className="text-[56px] 
                          font-bellefair
+                         uppercase
                          xl:text-[100px]"
             >
-              {foundDestination.name.toUpperCase()}
+              {foundDestination.name}
             </h1>
             <p
               className="text-lg
@@ -103,7 +105,8 @@ export const Destination = () => {
             </h3>
             <span
               className="text-3xl 
-                       font-bellefair"
+                         font-bellefair
+                         uppercase"
             >
               {foundDestination.distance}
             </span>
@@ -116,7 +119,8 @@ export const Destination = () => {
             </h3>
             <span
               className="text-3xl 
-                       font-bellefair"
+                         font-bellefair
+                         uppercase"
             >
               {foundDestination.travel}
             </span>
