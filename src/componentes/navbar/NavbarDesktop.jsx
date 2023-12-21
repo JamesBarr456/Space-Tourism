@@ -4,7 +4,7 @@ import menu from "../../assets/icons/icon-hamburger.svg";
 import logo from "../../assets/icons/logo.svg";
 import { motion } from "framer-motion";
 import { useState } from "react";
-useState
+useState;
 export const NavbarDesktop = ({ handleMenu }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [clickedIndex, setClickedIndex] = useState(0);
@@ -28,10 +28,10 @@ export const NavbarDesktop = ({ handleMenu }) => {
     >
       <img src={logo} alt="logo" />
       <motion.span
-          initial={{scaleX:0}}
-          animate={{scaleX:1}}
-          transition={{duration:0.5}}
-          className="hidden
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.5 }}
+        className="hidden
                      relative
                    bg-White
                      w-[30%]
@@ -42,8 +42,7 @@ export const NavbarDesktop = ({ handleMenu }) => {
                      top-[50%]
                      lg:block
                      "
-        >
-      </motion.span>
+      ></motion.span>
       <div
         className="hidden 
                    backdrop-blur-lg 
@@ -59,7 +58,6 @@ export const NavbarDesktop = ({ handleMenu }) => {
         >
           {Links.map((link, index) => (
             <motion.li
-
               className="font-condensed 
                          flex
                          relative
@@ -70,7 +68,6 @@ export const NavbarDesktop = ({ handleMenu }) => {
               onHoverStart={() => setHoveredIndex(index)} // Actualiza el índice al hacer hover
               onHoverEnd={() => setHoveredIndex(null)} // Reinicia el índice al dejar de hacer hover
             >
-
               <NavLink
                 to={`/${link.name.toLowerCase()}`}
                 onClick={() => handleLinkClick(index)}
@@ -99,9 +96,7 @@ export const NavbarDesktop = ({ handleMenu }) => {
                   left: 0,
                   width: "100%",
                   height: 3,
-                  background:
-                    clickedIndex === index ? "white" :  "gray"
-                ,
+                  background: clickedIndex === index ? "white" : "gray",
                 }}
               />
             </motion.li>

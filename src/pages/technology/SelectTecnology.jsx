@@ -1,35 +1,45 @@
-
+import { useState } from "react";
 
 export const SelectTecnology = ({ counts, setTecno }) => {
-    return (
-        <div
-            className="flex 
+  const [clickedIndex, setClickedIndex] = useState(0);
+  const handleTecno = (type, index) => {
+    setTecno(type);
+    setClickedIndex(index);
+  };
+  return (
+    <div
+      className="flex 
                        gap-4 
                        mb-10
                        justify-center
                        xl:flex-col
                        xl:justify-start
                        xl:gap-9"
+    >
+      {counts.map((count, index) => (
+        <button
+          type="button"
+          onClick={() => handleTecno(count, index)}
+          className={`text-xl
+                    w-10
+                    h-10
+                    md:w-14
+                    md:h-14
+                    xl:w-16
+                    xl:h-16
+                    xl:text-3xl
+                    rounded-full
+                    ${
+                      clickedIndex === index
+                        ? "bg-White text-Azul-Marino"
+                        : "hover:border-White/40"
+                    }
+                    
+                    border`}
         >
-            {counts.map(count => (
-                <button
-                    type="button"
-                    onClick={() => setTecno(count)}
-                    className="w-10
-                                h-10
-                                md:w-14
-                                md:h-14
-                                xl:w-16
-                                xl:h-16
-                                rounded-full
-                                border-White
-                                border"
-                >
-                    {count + 1}
-                </button>
-            ))}
-        </div>
-    )
-}
-
-
+          {count + 1}
+        </button>
+      ))}
+    </div>
+  );
+};
