@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Destinations } from "../../componentes/Data";
 import { SelectPlanet } from "./SelectPlanet";
-
+import { motion } from "framer-motion";
 export const Destination = () => {
   const [planet, setPlanet] = useState("moon");
 
   const planetDestiny = () => {
-    return Destinations.find((pl) => pl.name === planet);;
+    return Destinations.find((pl) => pl.name === planet);
   };
-  const foundDestination = planetDestiny()
+  const foundDestination = planetDestiny();
   return (
     <section
       className="bg-destination-mobile 
@@ -52,7 +52,13 @@ export const Destination = () => {
                      lg:items-center
                      w-full"
         >
-          <img
+          <motion.img
+            animate={{ rotate: 360 }} // Aplicar la animación de rotación
+            transition={{
+              duration: 20, // Duración de cada ciclo de rotación en segundos
+              repeat: Infinity, // Bucle infinito
+              ease: "linear", // Tipo de animación lineal
+            }}
             src={foundDestination.images.png}
             alt={foundDestination.name}
             className="w-[40%] 
@@ -68,9 +74,7 @@ export const Destination = () => {
                      border-[#d3d3d369]
                      pb-8"
           >
-            <SelectPlanet
-              setPlanet={setPlanet}
-            ></SelectPlanet>
+            <SelectPlanet setPlanet={setPlanet}></SelectPlanet>
             <h1
               className="text-[56px] 
                          font-bellefair

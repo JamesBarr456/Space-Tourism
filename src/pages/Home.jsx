@@ -30,7 +30,8 @@ export const Home = () => {
                        text-center
                        w-[327px]
                        md:w-[450px]
-                       lg:text-start"
+                       lg:text-start
+                       lg:-ml-6"
           >
             <h2
               className="font-condensed
