@@ -1,29 +1,16 @@
-import { useState } from "react";
-import { Destinations } from "../../componentes/Data";
-import { SelectPlanet } from "./SelectPlanet";
-import { motion } from "framer-motion";
+import { useState } from 'react';
+import { Destinations } from '../../componentes/Data';
+import { SelectPlanet } from './SelectPlanet';
+import { motion } from 'framer-motion';
 export const Destination = () => {
-  const [planet, setPlanet] = useState("moon");
+  const [planet, setPlanet] = useState('moon');
 
   const planetDestiny = () => {
     return Destinations.find((pl) => pl.name === planet);
   };
   const foundDestination = planetDestiny();
   return (
-    <section
-      className="bg-destination-mobile 
-                 bg-cover 
-                 bg-no-repeat 
-                 text-center
-                 min-h-screen
-                text-White
-                 px-6
-                 font-Barlow
-                 pt-40
-                 md:bg-destination-tablet
-                 md:px-20
-                 lg:bg-destination-desktop"
-    >
+    <section className="bg-destination-mobile bg-cover bg-no-repeat text-center min-h-screen text-White px-6 font-Barlow pt-40  md:bg-destination-tablet  md:px-20 lg:bg-destination-desktop">
       <h2
         className="tracking-[2.7px]
                        w-full
@@ -59,7 +46,7 @@ export const Destination = () => {
             transition={{
               duration: 20, // Duración de cada ciclo de rotación en segundos
               repeat: Infinity, // Bucle infinito
-              ease: "linear", // Tipo de animación lineal
+              ease: 'linear', // Tipo de animación lineal
             }}
             src={foundDestination.images.png}
             alt={foundDestination.name}
