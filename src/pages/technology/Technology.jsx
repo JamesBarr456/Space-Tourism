@@ -38,7 +38,8 @@ export const Technology = () => {
                      mb-10
                      md:text-start
                      md:pl-20
-                     lg:text-3xl"
+                     md:text-sm
+                     lg:text-xl"
         >
           <span
             className="font-bold 

@@ -1,17 +1,14 @@
 import { Links } from "../Data";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useNavbarContext } from "./NavbarContext";
 import menu from "../../assets/icons/icon-hamburger.svg";
 import logo from "../../assets/icons/logo.svg";
-import { motion } from "framer-motion";
-import { useState } from "react";
-useState;
-export const NavbarDesktop = ({ handleMenu }) => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [clickedIndex, setClickedIndex] = useState(0);
 
-  const handleLinkClick = (index) => {
-    setClickedIndex(index);
-  };
+export const NavbarDesktop = ({ handleMenu }) => {
+  
+  const { clickedIndex, updateClickedIndex, hoveredIndex, updateHoveredIndex } = useNavbarContext()
+  
   return (
     <div
       className="flex
@@ -54,7 +51,7 @@ export const NavbarDesktop = ({ handleMenu }) => {
                      gap-5
                      py-9
                      md:px-10
-                     lg:px-36"
+                     lg:px-32"
         >
           {Links.map((link, index) => (
             <motion.li
@@ -65,12 +62,12 @@ export const NavbarDesktop = ({ handleMenu }) => {
                          tracking-[2.7px]
                          ml-7"
               key={link.id}
-              onHoverStart={() => setHoveredIndex(index)} // Actualiza el índice al hacer hover
-              onHoverEnd={() => setHoveredIndex(null)} // Reinicia el índice al dejar de hacer hover
+              onHoverStart={() => updateHoveredIndex(index)} // Actualiza el índice al hacer hover
+              onHoverEnd={() => updateHoveredIndex(null)} // Reinicia el índice al dejar de hacer hover
             >
               <NavLink
                 to={`/${link.name.toLowerCase()}`}
-                onClick={() => handleLinkClick(index)}
+                onClick={() => updateClickedIndex(index)}
                 className="flex"
               >
                 <span

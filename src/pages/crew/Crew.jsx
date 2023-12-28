@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { Crews } from "../../componentes/Data";
 import { SelectPeople } from "./SelectPeople";
 export const Crew = () => {
@@ -7,7 +6,7 @@ export const Crew = () => {
   const findPeople = () => {
     return Crews.find((objeto) => objeto.name === crew);
   };
-  const names = Crews.map( objeto => objeto.name)
+  const names = Crews.map(objeto => objeto.name)
   const foundPeople = findPeople()
   return (
     <>

@@ -10,9 +10,7 @@ export const Navbar = () => {
   return (
     <>
       <NavbarDesktop handleMenu={handleMenu}></NavbarDesktop>
-      <div>
-        {modal ? <NavbarMobile setModal={setModal}></NavbarMobile> : null}
-      </div>
+      {modal ? <NavbarMobile setModal={setModal}></NavbarMobile> : null}
     </>
   );
 };

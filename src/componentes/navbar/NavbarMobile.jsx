@@ -1,9 +1,12 @@
 import { useEffect } from "react";
-import close from "../../assets/icons/icon-close.svg";
 import { Links } from "../Data";
 import { NavLink } from "react-router-dom";
-useEffect
+import { useNavbarContext } from "./NavbarContext";
+import close from "../../assets/icons/icon-close.svg";
+
 export const NavbarMobile = ({ setModal }) => {
+  const { updateClickedIndex } = useNavbarContext()
+
   const handleClose = () => {
     setModal(false);
   };
@@ -25,13 +28,13 @@ export const NavbarMobile = ({ setModal }) => {
   return (
     <div
       className="absolute
+                 z-50
                  top-0
                  right-0
                  w-64
                  min-h-screen
                  backdrop-blur-md
-                 bg-[#ffffff0d]
-                Ñ"
+                 bg-[#ffffff0d]"
     >
       <div
         className="flex
@@ -45,19 +48,26 @@ export const NavbarMobile = ({ setModal }) => {
       </div>
       <ul
         className="flex
-                       flex-col
-                       items-start
-                       gap-5"
+                   flex-col
+                   items-start
+                   gap-5"
       >
-        {Links.map((link) => (
+        {Links.map((link, index) => (
           <li
             className="font-condensed
                      text-White
                        tracking-[2.7px]
                        ml-7"
             key={link.id}
+            onClick={()=> 
+               {updateClickedIndex(index)
+               handleClose()}
+                
+              }
           >
-            <NavLink to={`/${link.name.toLowerCase()}`} onClick={handleClose}>
+            <NavLink 
+              to={`/${link.name.toLowerCase()}`} 
+            >
               <span
                 className="font-bold 
                            mr-5"

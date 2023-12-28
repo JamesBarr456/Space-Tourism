@@ -1,7 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
+import { useNavbarContext } from "../componentes/navbar/NavbarContext";
 export const Home = () => {
+  const {updateClickedIndex } = useNavbarContext();
   return (
     <>
       <section
@@ -77,6 +79,7 @@ export const Home = () => {
                        mt-16
                        md:mt-28
                        lg:mt-0"
+            onClick={() => updateClickedIndex(1)}
           >
             <NavLink
               to={"/destination"}

@@ -28,13 +28,15 @@ export const Destination = () => {
         className="tracking-[2.7px]
                        w-full
                        mb-10
-                       lg:text-3xl
-                       md:text-start"
+                       md:text-start
+                       md:text-sm
+                       lg:text-xl
+                       "
       >
         <span
           className="font-bold 
-                         opacity-25 
-                         mr-2"
+                     opacity-25 
+                     mr-2"
         >
           01
         </span>
