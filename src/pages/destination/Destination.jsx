@@ -4,122 +4,129 @@ import { SelectPlanet } from './SelectPlanet';
 import { motion } from 'framer-motion';
 export const Destination = () => {
   const [planet, setPlanet] = useState('moon');
-
   const planetDestiny = () => {
     return Destinations.find((pl) => pl.name === planet);
   };
   const foundDestination = planetDestiny();
   return (
-    <section className="bg-destination-mobile bg-cover bg-no-repeat text-center min-h-screen text-White px-6 font-Barlow pt-40  md:bg-destination-tablet  md:px-20 lg:bg-destination-desktop">
-      <h2
-        className="tracking-[2.7px]
-                       w-full
-                       mb-10
-                       md:text-start
-                       md:text-sm
-                       lg:text-xl
-                       "
+    <main
+      className="
+                bg-destination-mobile md:bg-destination-tablet lg:bg-destination-desktop 
+                bg-cover bg-no-repeat 
+                min-h-screen  
+                "
+    >
+      <section
+        className="
+                  container
+                text-White font-Barlow 
+                  pt-20 pb-20 mx-auto md:pt-36 lg:pt-64
+                  flex flex-col items-center text-center lg:items-start
+                  "
       >
-        <span
-          className="font-bold 
-                     opacity-25 
-                     mr-2"
+        <h2
+          className="
+                    font-condensed tracking-[2.7px] md:text-xl lg:text-[28px] lg:tracking-[4.72px]
+                    w-full
+                    mb-10 xl:pl-28 xl:mb-20
+                    md:text-start
+                    "
         >
-          01
-        </span>
-        PICK YOUR DESTINATION
-      </h2>
-      <div
-        className="lg:grid
-                   lg:grid-cols-2
-                   lg:grid-flow-row
-                   lg:justify-items-end"
-      >
-        <div /** figura */
-          className="flex 
-                     justify-center
-                     lg:items-center
-                     w-full"
+          <span
+            className="
+                      font-bold opacity-25 
+                      mr-2
+                      "
+          >
+            01
+          </span>
+          PICK YOUR DESTINATION
+        </h2>
+        <div
+          className="
+                    lg:flex lg:justify-around
+                    md:w-[80%] lg:w-full
+                    "
         >
-          <motion.img
-            animate={{ rotate: 360 }} // Aplicar la animación de rotación
-            transition={{
-              duration: 20, // Duración de cada ciclo de rotación en segundos
-              repeat: Infinity, // Bucle infinito
-              ease: 'linear', // Tipo de animación lineal
-            }}
-            src={foundDestination.images.png}
-            alt={foundDestination.name}
-            className="w-[40%] 
-                       lg:w-[350px] 
-                       lg:h-[350px] 
-                       xl:w-[450px] 
-                       xl:h-[450px]"
-          />
-        </div>
-        <div className="lg:w-[70%]">
-          <div /** texto */
-            className="border-b 
-                     border-[#d3d3d369]
-                     pb-8"
+          <picture
+            className="
+                      flex justify-center lg:items-center
+                      "
           >
-            <SelectPlanet setPlanet={setPlanet}></SelectPlanet>
-            <h1
-              className="text-[56px] 
-                         font-bellefair
-                         uppercase
-                         xl:text-[100px]"
+            <motion.img
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+              src={foundDestination.images.png}
+              alt={foundDestination.name}
+              className="w-[150px] md:w-[350px] md:h-[350px] xl:w-[450px] xl:h-[450px]"
+            />
+          </picture>
+          <div className="lg:w-[44.5%] xl:w-[32%]">
+            <div /** texto */
+              className="
+                          border-b border-[#d3d3d369]
+                          mx-8 md:mx-0
+                          "
             >
-              {foundDestination.name}
-            </h1>
-            <p
-              className="text-lg
-                          text-Azul-Lavanda
-                          lg:text-start"
+              <SelectPlanet setPlanet={setPlanet}></SelectPlanet>
+              <h1
+                className="
+                          font-bellefair  uppercase text-6xl lg:text-8xl  
+                          "
+              >
+                {foundDestination.name}
+              </h1>
+              <p
+                className="
+                          text-Azul-Lavanda lg:text-start
+                            my-5
+                          "
+              >
+                {foundDestination.description}
+              </p>
+            </div>
+
+            <div
+              className="
+                        flex flex-col gap-8  md:grid md:grid-rows-2 md:grid-flow-col
+                        mt-8
+                        "
             >
-              {foundDestination.description}
-            </p>
-          </div>
-          <div /** datos */
-            className="flex
-                     flex-col
-                     gap-5
-                     py-8
-                     md:grid
-                     md:grid-rows-2
-                     md:grid-flow-col"
-          >
-            <h3
-              className=" font-condensed
-                      text-Azul-Lavanda 
-                        tracking-[2.7px]"
-            >
-              AVG. DISTANCE
-            </h3>
-            <span
-              className="text-3xl 
-                         font-bellefair
-                         uppercase"
-            >
-              {foundDestination.distance}
-            </span>
-            <h3
-              className="font-condensed
-                     text-Azul-Lavanda 
-                       tracking-[2.7px]"
-            >
-              EST. TRAVEL TIME
-            </h3>
-            <span
-              className="text-3xl 
-                         font-bellefair
-                         uppercase"
-            >
-              {foundDestination.travel}
-            </span>
+              <h3
+                className=" 
+                          font-condensed text-Azul-Lavanda tracking-[2.7px]"
+              >
+                AVG. DISTANCE
+              </h3>
+              <span
+                className="
+                          font-bellefair uppercase text-3xl
+                          "
+              >
+                {foundDestination.distance}
+              </span>
+              <h3
+                className="
+                          font-condensed text-Azul-Lavanda tracking-[2.7px]
+                          "
+              >
+                EST. TRAVEL TIME
+              </h3>
+              <span
+                className="
+                          text-3xl uppercase font-bellefair
+                          "
+              >
+                {foundDestination.travel}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
