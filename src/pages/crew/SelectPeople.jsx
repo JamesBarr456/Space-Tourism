@@ -10,7 +10,7 @@ export const SelectPeople = ({ names, setCrew }) => {
     <>
       <div
         className="flex 
-                       gap-4 
+                       gap-5
                        my-10
                        md:order-2  
                        lg:justify-center 
@@ -25,8 +25,8 @@ export const SelectPeople = ({ names, setCrew }) => {
             className={`rounded-full
                         ${clickedIndex === index ? "bg-White" : "bg-White/20"}
                         ${clickedIndex !== index ? " hover:bg-White/50" : null}
-                        w-[15px] 
-                        h-[15px]`}
+                        w-[10px] 
+                        h-[10px]`}
           ></button>
         ))}
       </div>

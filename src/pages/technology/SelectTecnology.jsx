@@ -10,17 +10,18 @@ export const SelectTecnology = ({ counts, setTecno }) => {
     <div
       className="flex 
                        gap-4 
-                       mb-10
+                       my-10
                        justify-center
-                       xl:flex-col
-                       xl:justify-start
-                       xl:gap-9"
+                       lg:flex-col
+                       lg:justify-start
+                       lg:gap-9"
     >
       {counts.map((count, index) => (
         <button
           type="button"
           onClick={() => handleTecno(count, index)}
-          className={`text-xl
+          className={`
+                    font-bellefair
                     w-10
                     h-10
                     md:w-14

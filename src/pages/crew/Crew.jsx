@@ -9,90 +9,72 @@ export const Crew = () => {
   const names = Crews.map(objeto => objeto.name)
   const foundPeople = findPeople()
   return (
-    <>
+    <main
+      className="
+                bg-crew-mobile  md:bg-crew-tablet lg:bg-crew-desktop
+                bg-cover bg-no-repeat 
+                min-h-screen  
+                "
+    >
       <section
-        className="bg-crew-mobile 
-                   bg-cover 
-                   bg-no-repeat 
-                   text-center
-                   min-h-screen
-                   px-20
-                   pt-40
-                  text-White
-                   md:bg-crew-tablet
-                   lg:text-start
-                   lg:bg-crew-desktop"
+        className="
+                  container
+                text-White font-Barlow 
+                  pt-20 pb-20 px-5 mx-auto md:pt-36 lg:pt-64
+                  flex flex-col items-center 
+                  "
       >
         <h2
-          className="font-Barlow
-                       tracking-[2.7px]
-                       w-full
-                       mb-10
-                       lg:text-3xl
-                       "
+          className="
+                    font-condensed tracking-[2.7px] md:text-xl lg:text-[28px] lg:tracking-[4.72px]
+                    w-full
+                    mb-10 xl:pl-28 xl:mb-20
+                    text-center md:text-start
+                    "
         >
           <span
-            className="font-bold 
-                         opacity-25 
-                         mr-2"
+            className="font-bold opacity-25 mr-2"
           >
             02
           </span>
           MEET YOUR CREW
         </h2>
-        <div
-          className="flex
-                     flex-col
-                     items-center
-                     lg:items-star
-                     lg:w-[50%]
-                     xl:w-[40%]"
-        >
-          <img
-            className="h-52 
-                     border-White 
-                       border-b 
-                       md:border-0 
-                       md:h-[420px] 
-                       md:mt-2 
-                       md:order-3 
-                       lg:h-[75%] 
-                       lg:order-2 
-                       lg:absolute 
-                       lg:bottom-0 
-                       lg:right-[10%]"
-            src={foundPeople.images.png}
-            alt={foundPeople.name}
-          />
-          <SelectPeople
-            names={names}
-            setCrew={setCrew}
-          ></SelectPeople>
+        <div>
+          <picture
+            className="
+                      
+                      w-full 
+                      border-b border-Gris-Claro
+                      flex justify-center">
+            <img
+              src={foundPeople.images.png}
+              alt={foundPeople.name}
+              className="h-[223px] "
+            />
+          </picture>
+
           <div
-            className="font-bellefair  
-                     text-Azul-Claro 
-                       md:w-[65%] 
-                       lg:w-full "
-          >
-            <h3 className="lg:text-3xl">{foundPeople.role}</h3>
+            className="
+               
+                    flex flex-col items-center">
+            <SelectPeople names={names} setCrew={setCrew}></SelectPeople>
+            <h3
+              className="font-bellefair uppercase text-Gris-Claro">{foundPeople.role}</h3>
             <h1
-              className="text-2xl
-                       text-White 
-                         mt-2 mb-7 
-                         lg:text-[48px]"
-            >
+              className="font-bellefair uppercase text-2xl
+                         my-2">
               {foundPeople.name}
             </h1>
             <p
-              className="font-barlow 
-                         mb-10 
-                         lg:text-xl "
-            >
+              className="
+                        font-barlow text-[15px] text-Azul-Lavanda
+                        px-4
+                        text-center">
               {foundPeople.bio}
             </p>
           </div>
         </div>
       </section>
-    </>
+    </main >
   );
 };

@@ -1,109 +1,94 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { Technologys } from "../../componentes/Data"
 import { SelectTecnology } from "./SelectTecnology";
 export const Technology = () => {
   const [tecno, setTecno] = useState(0)
   const counts = Technologys.map((objeto, index) => index);
   const Tech = Technologys[tecno]
-  const [isMobile, setIsMobile] = useState(window.matchMedia("(max-width: 1280px)").matches);
-
-  useEffect(() => {
-    const mediaQueryList = window.matchMedia("(max-width: 1280px)");
-    const handleWidthChange = (event) => {
-      setIsMobile(event.matches);
-    };
-    mediaQueryList.addEventListener("change", handleWidthChange);
-    return () => {
-      mediaQueryList.removeEventListener("change", handleWidthChange);
-    };
-  }, []);
+  
   return (
-    <>
+
+    <main
+      className="
+                bg-tech-mobile md:bg-tech-tablet lg:bg-tech-desktop
+                bg-cover bg-no-repeat 
+                min-h-screen  
+                "
+    >
       <section
-        className="bg-tech-mobile 
-                     bg-cover 
-                     bg-no-repeat 
-                     text-center
-                     min-h-screen
-                     pt-40
-                   text-White
-                     md:bg-tech-tablet
-                     lg:bg-tech-desktop
-                     xl:text-start"
+        className="
+                  container
+                text-White font-Barlow 
+                  pt-20 pb-20  mx-auto md:pt-36 lg:pt-64
+                  flex flex-col items-center text-center lg:items-start
+                  "
       >
         <h2
-          className="font-Barlow
-                     tracking-[2.7px]
-                     w-full
-                     mb-10
-                     md:text-start
-                     md:pl-20
-                     md:text-sm
-                     lg:text-xl"
+          className="
+                    font-condensed tracking-[2.7px] md:text-xl lg:text-[28px] lg:tracking-[4.72px]
+                    w-full
+                    mb-10 xl:pl-28 xl:mb-20
+                    md:text-start
+                    "
         >
           <span
-            className="font-bold 
-                       opacity-25 
-                       mr-2"
+            className="
+                      font-bold opacity-25 
+                      mr-2
+                      "
           >
             03
           </span>
           SPACE LAUNCH 101
         </h2>
         <div
-          className="xl:grid
-                     xl:grid-cols-2
-                     xl:grid-flow-row
-                     xl:justify-items-center
-                     xl:items-center"
+          className="
+                    md:flex md:flex-col md:items-center lg:flex-row-reverse lg:justify-evenly
+                    "
         >
-          <div /** Aqui va la imagen */
-            className="xl:order-1
-                       pb-10">
-            <img
-              className="w-full"
-              src={isMobile ? Tech.images.landscape : Tech.images.portrait}
-              alt={Tech.name}
-            />
-          </div>
-          <div /** Aqui va los botones y texto */
-            className="font-condensed
-                       p-10
-                       xl:flex"
+          <picture
           >
+            <source media="(min-width: 1024px)" srcSet={Tech.images.portrait}></source>
+            <img
+              src={Tech.images.landscape}
+              alt={Tech.name}
+              className="md:h-[310px] lg:h-full"
+            />
+          </picture>
+          <div className="md:w-[58%] lg:w-[44.5%] xl:w-[40%]
+                         lg:flex lg:gap-10">
             <SelectTecnology
               counts={counts}
               setTecno={setTecno}
             ></SelectTecnology>
-            <div
-              className="xl:flex
-                         xl:flex-col
-                         md:px-12"
+            <div /** texto */
+              className="
+                        mx-14 md:mx-0 
+                        lg:flex lg:flex-col lg:justify-center lg:text-start"
             >
-              <h3 className="text-sm
-                            text-Azul-Claro"
+
+              <h3 className="font-condensed text-sm tracking-[2.36px] text-Azul-Claro"
               >
-                THE TERMINOLOGY..
+                THE TERMINOLOGY...
               </h3>
               <h1
-                className="text-2xl
-                        text-White 
-                         mt-2 mb-7 
-                         lg:text-[48px]"
+                className="
+                          font-bellefair  uppercase text-2xl md:text-[40px] xl:text-5xl
+                          my-5 
+                          "
               >
                 {Tech.name.toUpperCase()}
               </h1>
               <p
-                className="font-barlow
-                          text-Azul-Claro
-                         lg:text-xl "
+                className="text-Azul-Lavanda lg:text-lg 
+                          lg:pr-7"
               >
-               {Tech.description}
+                {Tech.description}
               </p>
             </div>
           </div>
         </div>
       </section>
-    </>
+    </main>
   )
 }
