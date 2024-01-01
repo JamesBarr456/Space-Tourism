@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export const SelectTecnology = ({ counts, setTecno }) => {
   const [clickedIndex, setClickedIndex] = useState(0);
@@ -32,8 +32,8 @@ export const SelectTecnology = ({ counts, setTecno }) => {
                     rounded-full
                     ${
                       clickedIndex === index
-                        ? "bg-White text-Azul-Marino"
-                        : "hover:border-White/40"
+                        ? 'bg-White text-Azul-Marino'
+                        : 'hover:border-White/40'
                     }
                     
                     border`}

@@ -1,14 +1,14 @@
-import { Links } from "../Data";
-import { NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useNavbarContext } from "./NavbarContext";
-import menu from "../../assets/icons/icon-hamburger.svg";
-import logo from "../../assets/icons/logo.svg";
+import { Links } from '../Data';
+import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useNavbarContext } from './NavbarContext';
+import menu from '../../assets/icons/icon-hamburger.svg';
+import logo from '../../assets/icons/logo.svg';
 
 export const NavbarDesktop = ({ handleMenu }) => {
-  
-  const { clickedIndex, updateClickedIndex, hoveredIndex, updateHoveredIndex } = useNavbarContext()
-  
+  const { clickedIndex, updateClickedIndex, hoveredIndex, updateHoveredIndex } =
+    useNavbarContext();
+
   return (
     <div
       className="flex
@@ -16,6 +16,7 @@ export const NavbarDesktop = ({ handleMenu }) => {
                    items-center
                    w-full
                    absolute 
+                   z-[9999]
                    pt-6
                    px-6
                    top-0 
@@ -88,12 +89,12 @@ export const NavbarDesktop = ({ handleMenu }) => {
                 }}
                 transition={{ duration: 0.5 }}
                 style={{
-                  position: "absolute",
+                  position: 'absolute',
                   bottom: -36,
                   left: 0,
-                  width: "100%",
+                  width: '100%',
                   height: 3,
-                  background: clickedIndex === index ? "white" : "gray",
+                  background: clickedIndex === index ? 'white' : 'gray',
                 }}
               />
             </motion.li>

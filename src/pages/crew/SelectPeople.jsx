@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export const SelectPeople = ({ names, setCrew }) => {
   const [clickedIndex, setClickedIndex] = useState(0);
@@ -11,20 +11,21 @@ export const SelectPeople = ({ names, setCrew }) => {
       <div
         className="flex 
                        gap-5
-                       my-10
-                       md:order-2  
-                       lg:justify-center 
-                       lg:order-3 
+                       my-10 lg:my-20
+                       md:order-3
+                       z-50
+                       lg:justify-start
                        lg:w-full
-                       lg:gap-8"
+                       lg:gap-6"
       >
         {names.map((name, index) => (
           <button
+            key={Date.now() - 1}
             type="button"
             onClick={() => handleCrew(name, index)}
             className={`rounded-full
-                        ${clickedIndex === index ? "bg-White" : "bg-White/20"}
-                        ${clickedIndex !== index ? " hover:bg-White/50" : null}
+                        ${clickedIndex === index ? 'bg-White' : 'bg-White/20'}
+                        ${clickedIndex !== index ? ' hover:bg-White/50' : null}
                         w-[10px] 
                         h-[10px]`}
           ></button>

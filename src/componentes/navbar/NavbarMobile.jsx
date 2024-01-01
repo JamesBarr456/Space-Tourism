@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { Links } from "../Data";
-import { NavLink } from "react-router-dom";
-import { useNavbarContext } from "./NavbarContext";
-import close from "../../assets/icons/icon-close.svg";
+import { useEffect } from 'react';
+import { Links } from '../Data';
+import { NavLink } from 'react-router-dom';
+import { useNavbarContext } from './NavbarContext';
+import close from '../../assets/icons/icon-close.svg';
 
 export const NavbarMobile = ({ setModal }) => {
-  const { updateClickedIndex } = useNavbarContext()
+  const { updateClickedIndex } = useNavbarContext();
 
   const handleClose = () => {
     setModal(false);
@@ -28,7 +28,7 @@ export const NavbarMobile = ({ setModal }) => {
   return (
     <div
       className="absolute
-                 z-50
+                 z-[9999]
                  top-0
                  right-0
                  w-64
@@ -59,15 +59,12 @@ export const NavbarMobile = ({ setModal }) => {
                        tracking-[2.7px]
                        ml-7"
             key={link.id}
-            onClick={()=> 
-               {updateClickedIndex(index)
-               handleClose()}
-                
-              }
+            onClick={() => {
+              updateClickedIndex(index);
+              handleClose();
+            }}
           >
-            <NavLink 
-              to={`/${link.name.toLowerCase()}`} 
-            >
+            <NavLink to={`/${link.name.toLowerCase()}`}>
               <span
                 className="font-bold 
                            mr-5"
