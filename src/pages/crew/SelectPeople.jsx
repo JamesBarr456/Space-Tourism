@@ -20,7 +20,6 @@ export const SelectPeople = ({ names, setCrew }) => {
       >
         {names.map((name, index) => (
           <button
-            key={Date.now() - 1}
             type="button"
             onClick={() => handleCrew(name, index)}
             className={`rounded-full
