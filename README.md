@@ -26,7 +26,6 @@ Users should be able to:
 ### Screenshot
 
 ![Home Desktop](./public/home.png)
-![Home Mobile](./public/home%20mobile.png)
 ![Crew Desktop](./public/crew.png)
 ![Home Mobile](./public/home%20mobile.png)
 ![Home Navbar](./public/home%20mobile%20navbar.png)
